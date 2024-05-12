@@ -3,33 +3,34 @@
   "WorkspaceRootPath": "C:\\Facultate\\An3Sem2\\Proiect baze de date\\P7-T9-GrecuHodorMituletu\\ASP.NET\\PlaneTickets\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8DCD4269-2F73-41C2-A493-B7B8AEB0BA8A}|PlaneTickets.csproj|c:\\facultate\\an3sem2\\proiect baze de date\\p7-t9-grecuhodormituletu\\asp.net\\planetickets\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8DCD4269-2F73-41C2-A493-B7B8AEB0BA8A}|PlaneTickets.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8DCD4269-2F73-41C2-A493-B7B8AEB0BA8A}|PlaneTickets.csproj|c:\\facultate\\an3sem2\\proiect baze de date\\p7-t9-grecuhodormituletu\\asp.net\\planetickets\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8DCD4269-2F73-41C2-A493-B7B8AEB0BA8A}|PlaneTickets.csproj|solutionrelative:controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/aspnet_PlaneTickets_a8a09948_2c77_4a23_815c_9cc7edd1175a/True/SqlTable/dbo.AspNetUsers.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/aspnet_PlaneTickets_a8a09948_2c77_4a23_815c_9cc7edd1175a/True/SqlTable/dbo.AspNetUserRoles.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/aspnet_PlaneTickets_a8a09948_2c77_4a23_815c_9cc7edd1175a/True/SqlTable/dbo.AspNetRoles.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{8DCD4269-2F73-41C2-A493-B7B8AEB0BA8A}|PlaneTickets.csproj|c:\\facultate\\an3sem2\\proiect baze de date\\p7-t9-grecuhodormituletu\\asp.net\\planetickets\\models\\cart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8DCD4269-2F73-41C2-A493-B7B8AEB0BA8A}|PlaneTickets.csproj|solutionrelative:models\\cart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8DCD4269-2F73-41C2-A493-B7B8AEB0BA8A}|PlaneTickets.csproj|c:\\facultate\\an3sem2\\proiect baze de date\\p7-t9-grecuhodormituletu\\asp.net\\planetickets\\models\\ticket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8DCD4269-2F73-41C2-A493-B7B8AEB0BA8A}|PlaneTickets.csproj|solutionrelative:models\\ticket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8DCD4269-2F73-41C2-A493-B7B8AEB0BA8A}|PlaneTickets.csproj|c:\\facultate\\an3sem2\\proiect baze de date\\p7-t9-grecuhodormituletu\\asp.net\\planetickets\\models\\cartticket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8DCD4269-2F73-41C2-A493-B7B8AEB0BA8A}|PlaneTickets.csproj|solutionrelative:models\\cartticket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8DCD4269-2F73-41C2-A493-B7B8AEB0BA8A}|PlaneTickets.csproj|c:\\facultate\\an3sem2\\proiect baze de date\\p7-t9-grecuhodormituletu\\asp.net\\planetickets\\models\\ticket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8DCD4269-2F73-41C2-A493-B7B8AEB0BA8A}|PlaneTickets.csproj|solutionrelative:models\\ticket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/aspnet_PlaneTickets_a8a09948_2c77_4a23_815c_9cc7edd1175a/True/SqlTable/dbo.AspNetUserRoles.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8DCD4269-2F73-41C2-A493-B7B8AEB0BA8A}|PlaneTickets.csproj|c:\\facultate\\an3sem2\\proiect baze de date\\p7-t9-grecuhodormituletu\\asp.net\\planetickets\\areas\\identity\\pages\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8DCD4269-2F73-41C2-A493-B7B8AEB0BA8A}|PlaneTickets.csproj|solutionrelative:areas\\identity\\pages\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8DCD4269-2F73-41C2-A493-B7B8AEB0BA8A}|PlaneTickets.csproj|c:\\facultate\\an3sem2\\proiect baze de date\\p7-t9-grecuhodormituletu\\asp.net\\planetickets\\areas\\identity\\pages\\account\\register.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8DCD4269-2F73-41C2-A493-B7B8AEB0BA8A}|PlaneTickets.csproj|solutionrelative:areas\\identity\\pages\\account\\register.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8DCD4269-2F73-41C2-A493-B7B8AEB0BA8A}|PlaneTickets.csproj|c:\\facultate\\an3sem2\\proiect baze de date\\p7-t9-grecuhodormituletu\\asp.net\\planetickets\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8DCD4269-2F73-41C2-A493-B7B8AEB0BA8A}|PlaneTickets.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/aspnet_PlaneTickets_a8a09948_2c77_4a23_815c_9cc7edd1175a/True/SqlTable/dbo.AspNetRoles.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
     }
   ],
   "DocumentGroupContainers": [
@@ -39,31 +40,8 @@
       "DocumentGroups": [
         {
           "DockedHeight": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 6,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "HomeController.cs",
-              "DocumentMoniker": "C:\\Facultate\\An3Sem2\\Proiect baze de date\\P7-T9-GrecuHodorMituletu\\ASP.NET\\PlaneTickets\\Controllers\\HomeController.cs",
-              "RelativeDocumentMoniker": "Controllers\\HomeController.cs",
-              "ToolTip": "C:\\Facultate\\An3Sem2\\Proiect baze de date\\P7-T9-GrecuHodorMituletu\\ASP.NET\\PlaneTickets\\Controllers\\HomeController.cs",
-              "RelativeToolTip": "Controllers\\HomeController.cs",
-              "ViewState": "AQIAAAcAAAAAAAAAAAAAABUAAAAkAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-12T17:31:12.183Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "dbo.AspNetUsers [Data]",
-              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/aspnet_PlaneTickets_a8a09948_2c77_4a23_815c_9cc7edd1175a/True/SqlTable/dbo.AspNetUsers.sql",
-              "ToolTip": "dbo.AspNetUsers [Data]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2024-05-12T17:30:08.647Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Document",
               "DocumentIndex": 3,
@@ -71,12 +49,38 @@
               "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/aspnet_PlaneTickets_a8a09948_2c77_4a23_815c_9cc7edd1175a/True/SqlTable/dbo.AspNetUserRoles.sql",
               "ToolTip": "dbo.AspNetUserRoles [Data]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2024-05-12T17:30:03.423Z",
+              "WhenOpened": "2024-05-12T18:04:13.34Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
+              "Title": "Register.cshtml",
+              "DocumentMoniker": "C:\\Facultate\\An3Sem2\\Proiect baze de date\\P7-T9-GrecuHodorMituletu\\ASP.NET\\PlaneTickets\\Areas\\Identity\\Pages\\Account\\Register.cshtml",
+              "RelativeDocumentMoniker": "Areas\\Identity\\Pages\\Account\\Register.cshtml",
+              "ToolTip": "C:\\Facultate\\An3Sem2\\Proiect baze de date\\P7-T9-GrecuHodorMituletu\\ASP.NET\\PlaneTickets\\Areas\\Identity\\Pages\\Account\\Register.cshtml",
+              "RelativeToolTip": "Areas\\Identity\\Pages\\Account\\Register.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-12T18:02:07.248Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Register.cshtml.cs",
+              "DocumentMoniker": "C:\\Facultate\\An3Sem2\\Proiect baze de date\\P7-T9-GrecuHodorMituletu\\ASP.NET\\PlaneTickets\\Areas\\Identity\\Pages\\Account\\Register.cshtml.cs",
+              "RelativeDocumentMoniker": "Areas\\Identity\\Pages\\Account\\Register.cshtml.cs",
+              "ToolTip": "C:\\Facultate\\An3Sem2\\Proiect baze de date\\P7-T9-GrecuHodorMituletu\\ASP.NET\\PlaneTickets\\Areas\\Identity\\Pages\\Account\\Register.cshtml.cs",
+              "RelativeToolTip": "Areas\\Identity\\Pages\\Account\\Register.cshtml.cs",
+              "ViewState": "AQIAAHUAAAAAAAAAAAAqwIcAAABEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-12T17:57:54.909Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "dbo.AspNetRoles [Data]",
               "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/aspnet_PlaneTickets_a8a09948_2c77_4a23_815c_9cc7edd1175a/True/SqlTable/dbo.AspNetRoles.sql",
               "ToolTip": "dbo.AspNetRoles [Data]",
@@ -86,20 +90,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 6,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Facultate\\An3Sem2\\Proiect baze de date\\P7-T9-GrecuHodorMituletu\\ASP.NET\\PlaneTickets\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\Facultate\\An3Sem2\\Proiect baze de date\\P7-T9-GrecuHodorMituletu\\ASP.NET\\PlaneTickets\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AQIAAEcAAAAAAAAAAAAcwFIAAAAhAAAA",
+              "ViewState": "AQIAABcAAAAAAAAAAAAcwFIAAAAhAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-12T17:06:45.458Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 2,
               "Title": "CartTicket.cs",
               "DocumentMoniker": "C:\\Facultate\\An3Sem2\\Proiect baze de date\\P7-T9-GrecuHodorMituletu\\ASP.NET\\PlaneTickets\\Models\\CartTicket.cs",
               "RelativeDocumentMoniker": "Models\\CartTicket.cs",
@@ -112,20 +116,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 0,
               "Title": "Cart.cs",
               "DocumentMoniker": "C:\\Facultate\\An3Sem2\\Proiect baze de date\\P7-T9-GrecuHodorMituletu\\ASP.NET\\PlaneTickets\\Models\\Cart.cs",
               "RelativeDocumentMoniker": "Models\\Cart.cs",
               "ToolTip": "C:\\Facultate\\An3Sem2\\Proiect baze de date\\P7-T9-GrecuHodorMituletu\\ASP.NET\\PlaneTickets\\Models\\Cart.cs",
               "RelativeToolTip": "Models\\Cart.cs",
-              "ViewState": "AQIAAAQAAAAAAAAAAAAiwBAAAABHAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-12T14:16:47.949Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 1,
               "Title": "Ticket.cs",
               "DocumentMoniker": "C:\\Facultate\\An3Sem2\\Proiect baze de date\\P7-T9-GrecuHodorMituletu\\ASP.NET\\PlaneTickets\\Models\\Ticket.cs",
               "RelativeDocumentMoniker": "Models\\Ticket.cs",

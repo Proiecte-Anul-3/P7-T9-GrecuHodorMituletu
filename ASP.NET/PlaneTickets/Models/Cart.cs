@@ -1,5 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using Microsoft.AspNetCore.Identity;
+using System.ComponentModel.DataAnnotations;
 
 
 namespace PlaneTickets.Models
@@ -10,7 +10,7 @@ namespace PlaneTickets.Models
         public int CartId { get; set; }  // Primary key
 
         public int UserId { get; set; }  // Foreign key to the Users table
-        public required AspNetUsers User { get; set; }  // Might be needed for additional user data
+        public required IdentityUser User { get; set; }  // Might be needed for additional user data
 
         public decimal TotalPrice { get; set; }
 
