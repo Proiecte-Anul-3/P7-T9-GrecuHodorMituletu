@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using PlaneTickets.Models;
 
 namespace PlaneTickets.Data
 {
@@ -9,5 +10,8 @@ namespace PlaneTickets.Data
             : base(options)
         {
         }
+        public DbSet<PlaneTickets.Models.Ticket> Ticket { get; set; } = default!;
+        public DbSet<PlaneTickets.Models.CartTicket> CartTicket { get; set; } = default!;
+        public DbSet<PlaneTickets.Models.Cart> Cart { get; set; } = default!;
     }
 }
