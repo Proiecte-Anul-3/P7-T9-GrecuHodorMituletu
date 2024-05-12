@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -46,6 +47,7 @@ namespace PlaneTickets.Controllers
         }
 
         // GET: Tickets/Create
+        [Authorize(Roles = "Admin, Worker")]
         public IActionResult Create()
         {
             return View();
@@ -56,6 +58,7 @@ namespace PlaneTickets.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin, Worker")]
         public async Task<IActionResult> Create([Bind("TicketId,Departure,Destination,Price,Quantity,Class,DepartureTime,DestinationTime,DestinationGate,DepartureGate")] Ticket ticket)
         {
             if (ModelState.IsValid)
@@ -68,6 +71,7 @@ namespace PlaneTickets.Controllers
         }
 
         // GET: Tickets/Edit/5
+        [Authorize(Roles = "Admin, Worker")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Ticket == null)
@@ -88,6 +92,7 @@ namespace PlaneTickets.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin, Worker")]
         public async Task<IActionResult> Edit(int id, [Bind("TicketId,Departure,Destination,Price,Quantity,Class,DepartureTime,DestinationTime,DestinationGate,DepartureGate")] Ticket ticket)
         {
             if (id != ticket.TicketId)
@@ -119,6 +124,7 @@ namespace PlaneTickets.Controllers
         }
 
         // GET: Tickets/Delete/5
+        [Authorize(Roles = "Admin, Worker")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Ticket == null)
@@ -139,6 +145,7 @@ namespace PlaneTickets.Controllers
         // POST: Tickets/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin, Worker")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             if (_context.Ticket == null)
