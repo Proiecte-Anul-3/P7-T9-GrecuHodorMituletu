@@ -55,6 +55,7 @@ namespace PlaneTickets.Controllers
         }
 
         // GET: Carts/Create
+        [Authorize (Roles ="Admin")]
         public IActionResult Create()
         {
             ViewData["TicketId"] = new SelectList(_context.Ticket, "TicketId", "TicketId");
@@ -66,6 +67,7 @@ namespace PlaneTickets.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Create([Bind("CartId,UserId,Price,TicketId")] Cart cart)
         {
             if (ModelState.IsValid)
@@ -79,6 +81,7 @@ namespace PlaneTickets.Controllers
         }
 
         // GET: Carts/Edit/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Cart == null)
@@ -100,6 +103,7 @@ namespace PlaneTickets.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(int id, [Bind("CartId,UserId,Price,TicketId")] Cart cart)
         {
             if (id != cart.CartId)

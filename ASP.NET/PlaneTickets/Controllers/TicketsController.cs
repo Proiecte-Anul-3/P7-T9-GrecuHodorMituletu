@@ -29,6 +29,7 @@ namespace PlaneTickets.Controllers
         }
 
         // GET: Tickets/Details/5
+        [Authorize]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Ticket == null)

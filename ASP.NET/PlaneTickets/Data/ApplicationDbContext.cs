@@ -11,7 +11,6 @@ namespace PlaneTickets.Data
         {
         }
         public DbSet<PlaneTickets.Models.Ticket> Ticket { get; set; } = default!;
-        public DbSet<PlaneTickets.Models.CartTicket> CartTicket { get; set; } = default!;
         public DbSet<PlaneTickets.Models.Cart> Cart { get; set; } = default!;
     }
 }
