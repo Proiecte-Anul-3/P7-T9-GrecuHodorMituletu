@@ -20,12 +20,28 @@ namespace PlaneTickets.Controllers
             _context = context;
         }
 
-        // GET: Tickets
-        public async Task<IActionResult> Index()
+        //GET Tickets
+        public async Task<IActionResult> Index(string DepartureString, string DestinationString)
         {
-              return _context.Ticket != null ? 
-                          View(await _context.Ticket.ToListAsync()) :
-                          Problem("Entity set 'ApplicationDbContext.Ticket'  is null.");
+            if (_context.Ticket == null)
+            {
+                return Problem("Entity set 'ApplicationDbContext'  is null.");
+            }
+            var tickets = from t in _context.Ticket
+                          select t;
+            if (!String.IsNullOrEmpty(DestinationString) && !String.IsNullOrEmpty(DepartureString))
+            {
+                tickets = tickets.Where(s => s.Destination!.Contains(DestinationString) && s.Departure!.Contains(DepartureString));
+            }
+            else if (!String.IsNullOrEmpty(DestinationString))
+            {
+                tickets = tickets.Where(s => s.Destination!.Contains(DestinationString));
+            }
+            else if (!String.IsNullOrEmpty(DepartureString))
+            {
+                tickets = tickets.Where(s => s.Destination!.Contains(DepartureString));
+            }
+            return View(await tickets.ToListAsync());
         }
 
         // GET: Tickets/Details/5
@@ -154,11 +170,18 @@ namespace PlaneTickets.Controllers
                 return Problem("Entity set 'ApplicationDbContext.Ticket'  is null.");
             }
             var ticket = await _context.Ticket.FindAsync(id);
+            if (_context.Cart != null)
+            {
+                var cartsToDelete = _context.Cart.Where(c => c.TicketId == id);
+                foreach (var cart in cartsToDelete)
+                {
+                    _context.Cart.Remove(cart);
+                }
+            }
             if (ticket != null)
             {
                 _context.Ticket.Remove(ticket);
             }
-            
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }

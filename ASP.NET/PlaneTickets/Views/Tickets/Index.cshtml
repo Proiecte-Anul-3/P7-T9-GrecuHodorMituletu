@@ -6,6 +6,15 @@
 
 <h1>Plane Tickets</h1>
 
+<form asp-controller="Tickets" asp-action="Index">
+    <p>
+        Departure: <input type="text" name="DepartureString" />
+        Destination: <input type="text" name="DestinationString" />
+        <input type="submit" value="Filter" />
+
+    </p>
+</form>
+
 <table class="table">
     <thead>
         <tr>
@@ -76,7 +85,9 @@
                 @Html.DisplayFor(modelItem => item.DestinationGate)
             </td>
             <td>
+                    <a asp-action="Edit" asp-route-id="@item.TicketId">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.TicketId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.TicketId">Delete</a> |
                 <a asp-action="AddToCart" asp-controller="Carts" asp-route-id="@item.TicketId">Add to cart</a>
             </td>
         </tr>
