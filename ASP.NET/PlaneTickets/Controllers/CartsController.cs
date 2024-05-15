@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -13,16 +15,20 @@ namespace PlaneTickets.Controllers
     public class CartsController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly UserManager<IdentityUser> _userManager;
+        private readonly SignInManager<IdentityUser> _signInManager;
 
-        public CartsController(ApplicationDbContext context)
+        public CartsController(ApplicationDbContext context, UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager)
         {
             _context = context;
+            _userManager = userManager;
+            _signInManager = signInManager;
         }
 
         // GET: Carts
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Cart.Include(c => c.User);
+            var applicationDbContext = _context.Cart.Include(c => c.Ticket);
             return View(await applicationDbContext.ToListAsync());
         }
 
@@ -35,7 +41,7 @@ namespace PlaneTickets.Controllers
             }
 
             var cart = await _context.Cart
-                .Include(c => c.User)
+                .Include(c => c.Ticket)
                 .FirstOrDefaultAsync(m => m.CartId == id);
             if (cart == null)
             {
@@ -48,7 +54,7 @@ namespace PlaneTickets.Controllers
         // GET: Carts/Create
         public IActionResult Create()
         {
-            ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id");
+            ViewData["TicketId"] = new SelectList(_context.Ticket, "TicketId", "TicketId");
             return View();
         }
 
@@ -57,7 +63,7 @@ namespace PlaneTickets.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CartId,UserId,TotalPrice")] Cart cart)
+        public async Task<IActionResult> Create([Bind("CartId,UserId,Price,TicketId")] Cart cart)
         {
             if (ModelState.IsValid)
             {
@@ -65,7 +71,7 @@ namespace PlaneTickets.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id", cart.UserId);
+            ViewData["TicketId"] = new SelectList(_context.Ticket, "TicketId", "TicketId", cart.TicketId);
             return View(cart);
         }
 
@@ -82,7 +88,7 @@ namespace PlaneTickets.Controllers
             {
                 return NotFound();
             }
-            ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id", cart.UserId);
+            ViewData["TicketId"] = new SelectList(_context.Ticket, "TicketId", "TicketId", cart.TicketId);
             return View(cart);
         }
 
@@ -91,7 +97,7 @@ namespace PlaneTickets.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("CartId,UserId,TotalPrice")] Cart cart)
+        public async Task<IActionResult> Edit(int id, [Bind("CartId,UserId,Price,TicketId")] Cart cart)
         {
             if (id != cart.CartId)
             {
@@ -118,7 +124,7 @@ namespace PlaneTickets.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id", cart.UserId);
+            ViewData["TicketId"] = new SelectList(_context.Ticket, "TicketId", "TicketId", cart.TicketId);
             return View(cart);
         }
 
@@ -131,7 +137,7 @@ namespace PlaneTickets.Controllers
             }
 
             var cart = await _context.Cart
-                .Include(c => c.User)
+                .Include(c => c.Ticket)
                 .FirstOrDefaultAsync(m => m.CartId == id);
             if (cart == null)
             {
@@ -163,6 +169,58 @@ namespace PlaneTickets.Controllers
         private bool CartExists(int id)
         {
           return (_context.Cart?.Any(e => e.CartId == id)).GetValueOrDefault();
+        }
+
+        [Authorize]
+        public async Task<IActionResult> AddToCart(int TicketId)
+        {
+            var ticketAddToCart = await _context.Ticket.FirstOrDefaultAsync(u => u.TicketId == TicketId);
+            var checkifUserSignedInOrNot = _signInManager.IsSignedIn(User);
+            if (checkifUserSignedInOrNot)
+            {
+
+
+                var user = _userManager.GetUserId(User);
+                if (user != null)
+                {
+                    //Check if the signed user has any cart or not?
+                    var getTheCartIfAnyExistForTheUser = await _context.Cart.Where(u => u.UserId.Contains(user)).ToListAsync();
+                    if (getTheCartIfAnyExistForTheUser.Count() > 0)
+                    {
+                        //check if the item is already in the cart or not
+                        var getTheQuantity = getTheCartIfAnyExistForTheUser.FirstOrDefault(p => p.TicketId == TicketId);
+                        if (getTheQuantity != null)
+                        { //if the item is already in the cart just increase the quantity by 1 and update the cart.
+                            getTheQuantity.Quantity = getTheQuantity.Quantity + 1;
+                            _context.Cart.Update(getTheQuantity);
+                        }
+                        else
+                        { // User has a cart but addding a new item to the existing cart.
+                            Cart newItemToCart = new Cart
+                            {
+                                TicketId = TicketId,
+                                UserId = user,
+                                Quantity = 1,
+                            };
+                            await _context.Cart.AddAsync(newItemToCart);
+                            await _context.SaveChangesAsync();
+                        }
+                    }
+                    else
+                    {
+                        // User has no cart. Addding a brand new cart for the user.
+                        Cart newItemToCart = new Cart
+                        {
+                            TicketId = TicketId,
+                            UserId = user,
+                            Quantity = 1,
+                        };
+                        await _context.Cart.AddAsync(newItemToCart);
+                        await _context.SaveChangesAsync();
+                    }
+                }
+            }
+            return View("Index", "Home");
         }
     }
 }

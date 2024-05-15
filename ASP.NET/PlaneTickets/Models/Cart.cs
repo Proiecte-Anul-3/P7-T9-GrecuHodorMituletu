@@ -9,11 +9,14 @@ namespace PlaneTickets.Models
     {
         [Key]
         public int CartId { get; set; }  // Primary key
-        [ForeignKey("User")]
+        [ForeignKey("userId")]
         public required string UserId { get; set; }  // Foreign key to the Users table
-        public required IdentityUser User { get; set; }  // Might be needed for additional user data
-        public decimal TotalPrice { get; set; }
-        //ICollection<CartItem> is used for the relationship between ShoppingCart and CartItem
-        public required ICollection<CartTicket> CartItems { get; set; }
+        public double Price { get; set; }
+        [ForeignKey("TicketId")]
+        public int? TicketId { get; set; }
+        public Ticket Ticket { get; set; }
+        [NotMapped]
+        public int Quantity { get; set; }
+
     }
 }
