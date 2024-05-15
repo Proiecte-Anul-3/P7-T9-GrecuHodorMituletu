@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PlaneTickets.Data;
 
@@ -11,9 +12,11 @@ using PlaneTickets.Data;
 namespace PlaneTickets.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240515160449_Ver1.4")]
+    partial class Ver14
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -249,7 +252,7 @@ namespace PlaneTickets.Data.Migrations
 
                     b.HasIndex("TicketId");
 
-                    b.ToTable("Cart", (string)null);
+                    b.ToTable("Cart");
                 });
 
             modelBuilder.Entity("PlaneTickets.Models.CartTicket", b =>
@@ -275,7 +278,7 @@ namespace PlaneTickets.Data.Migrations
 
                     b.HasIndex("TicketId");
 
-                    b.ToTable("CartTicket", (string)null);
+                    b.ToTable("CartTicket");
                 });
 
             modelBuilder.Entity("PlaneTickets.Models.Ticket", b =>
@@ -320,7 +323,7 @@ namespace PlaneTickets.Data.Migrations
 
                     b.HasKey("TicketId");
 
-                    b.ToTable("Ticket", (string)null);
+                    b.ToTable("Ticket");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

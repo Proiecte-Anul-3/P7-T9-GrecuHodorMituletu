@@ -26,9 +26,12 @@ namespace PlaneTickets.Controllers
         }
 
         // GET: Carts
+        [Authorize]
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Cart.Include(c => c.Ticket);
+            var userId = _userManager.GetUserId(User);
+            var applicationDbContext = _context.Cart.Include(c => c.Ticket)
+                                                        .Where(c => c.UserId == userId); // Filter by user ID
             return View(await applicationDbContext.ToListAsync());
         }
 
@@ -161,20 +164,20 @@ namespace PlaneTickets.Controllers
             {
                 _context.Cart.Remove(cart);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool CartExists(int id)
         {
-          return (_context.Cart?.Any(e => e.CartId == id)).GetValueOrDefault();
+            return (_context.Cart?.Any(e => e.CartId == id)).GetValueOrDefault();
         }
 
         [Authorize]
-        public async Task<IActionResult> AddToCart(int TicketId)
+        public async Task<IActionResult> AddToCart(int id)
         {
-            var ticketAddToCart = await _context.Ticket.FirstOrDefaultAsync(u => u.TicketId == TicketId);
+            Ticket ticketAddToCart = await _context.Ticket.FirstOrDefaultAsync(u => u.TicketId == id);
             var checkifUserSignedInOrNot = _signInManager.IsSignedIn(User);
             if (checkifUserSignedInOrNot)
             {
@@ -188,17 +191,20 @@ namespace PlaneTickets.Controllers
                     if (getTheCartIfAnyExistForTheUser.Count() > 0)
                     {
                         //check if the item is already in the cart or not
-                        var getTheQuantity = getTheCartIfAnyExistForTheUser.FirstOrDefault(p => p.TicketId == TicketId);
+                        var getTheQuantity = getTheCartIfAnyExistForTheUser.FirstOrDefault(p => p.TicketId == id);
                         if (getTheQuantity != null)
                         { //if the item is already in the cart just increase the quantity by 1 and update the cart.
                             getTheQuantity.Quantity = getTheQuantity.Quantity + 1;
                             _context.Cart.Update(getTheQuantity);
+                            getTheQuantity.Price += getTheQuantity.Price;
                         }
                         else
                         { // User has a cart but addding a new item to the existing cart.
                             Cart newItemToCart = new Cart
                             {
-                                TicketId = TicketId,
+                                TicketId = id,
+                                Price = ticketAddToCart.Price,
+                                Ticket = ticketAddToCart,
                                 UserId = user,
                                 Quantity = 1,
                             };
@@ -211,16 +217,18 @@ namespace PlaneTickets.Controllers
                         // User has no cart. Addding a brand new cart for the user.
                         Cart newItemToCart = new Cart
                         {
-                            TicketId = TicketId,
+                            TicketId = id,
+                            Price = ticketAddToCart.Price,
+                            Ticket = ticketAddToCart,
                             UserId = user,
                             Quantity = 1,
                         };
                         await _context.Cart.AddAsync(newItemToCart);
-                        await _context.SaveChangesAsync();
                     }
+                    await _context.SaveChangesAsync();
                 }
             }
-            return View("Index", "Home");
+            return RedirectToAction("Index");
         }
     }
 }

@@ -11,11 +11,10 @@ namespace PlaneTickets.Models
         public int CartId { get; set; }  // Primary key
         [ForeignKey("userId")]
         public required string UserId { get; set; }  // Foreign key to the Users table
-        public double Price { get; set; }
+        public decimal Price { get; set; }
         [ForeignKey("TicketId")]
         public int? TicketId { get; set; }
         public Ticket Ticket { get; set; }
-        [NotMapped]
         public int Quantity { get; set; }
 
     }

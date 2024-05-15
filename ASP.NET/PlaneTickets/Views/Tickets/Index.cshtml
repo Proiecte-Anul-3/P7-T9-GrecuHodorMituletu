@@ -1,17 +1,17 @@
 ﻿@model IEnumerable<PlaneTickets.Models.Ticket>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Tickets";
 }
 
-<h1>Index</h1>
+<h1>Plane Tickets</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
 <table class="table">
     <thead>
         <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TicketId)
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.Departure)
             </th>
@@ -34,10 +34,10 @@
                 @Html.DisplayNameFor(model => model.DestinationTime)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.DestinationGate)
+                @Html.DisplayNameFor(model => model.DepartureGate)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.DepartureGate)
+                @Html.DisplayNameFor(model => model.DestinationGate)
             </th>
             <th></th>
         </tr>
@@ -45,6 +45,9 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TicketId)
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Departure)
             </td>
@@ -67,15 +70,13 @@
                 @Html.DisplayFor(modelItem => item.DestinationTime)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.DestinationGate)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.DepartureGate)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.TicketId">Edit</a> |
+                @Html.DisplayFor(modelItem => item.DestinationGate)
+            </td>
+            <td>
                 <a asp-action="Details" asp-route-id="@item.TicketId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.TicketId">Delete</a> |
                 <a asp-action="AddToCart" asp-controller="Carts" asp-route-id="@item.TicketId">Add to cart</a>
             </td>
         </tr>
