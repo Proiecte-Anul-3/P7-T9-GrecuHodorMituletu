@@ -39,7 +39,7 @@ namespace PlaneTickets.Controllers
             }
             else if (!String.IsNullOrEmpty(DepartureString))
             {
-                tickets = tickets.Where(s => s.Destination!.Contains(DepartureString));
+                tickets = tickets.Where(s => s.Departure!.Contains(DepartureString));
             }
             return View(await tickets.ToListAsync());
         }
