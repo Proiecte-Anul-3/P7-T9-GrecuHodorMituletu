@@ -200,7 +200,7 @@ namespace PlaneTickets.Controllers
                         { //if the item is already in the cart just increase the quantity by 1 and update the cart.
                             getTheQuantity.Quantity = getTheQuantity.Quantity + 1;
                             _context.Cart.Update(getTheQuantity);
-                            getTheQuantity.Price += getTheQuantity.Price;
+                            getTheQuantity.Price += ticketAddToCart.Price;
                         }
                         else
                         { // User has a cart but addding a new item to the existing cart.
